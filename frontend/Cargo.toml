@@ -1,0 +1,14 @@
+[package]
+name = "kallisti-frontend"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+kallisti = { version = "0.1.0", path = ".." }
+js-sys = "0.3.57"
+wasm-bindgen = "0.2.80"
+wasm-bindgen-futures = "0.4.30"
+web-sys = "0.3.57"
+yew = "0.19.3"

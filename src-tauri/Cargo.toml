@@ -1,0 +1,26 @@
+[package]
+name = "kallisti-tauri"
+version = "0.1.0"
+description = "To the Prettiest!"
+authors = ["Kat Marchán <kzm@zkat.tech>"]
+license = "Apache-2.0"
+default-run = "kallisti-tauri"
+edition = "2021"
+rust-version = "1.57"
+
+[build-dependencies]
+tauri-build = { version = "1.0.0-rc.6", features = [] }
+
+[dependencies]
+kallisti = { version = "0.1.0", path = ".." }
+serde_json = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+tauri = { version = "1.0.0-rc.7", features = ["api-all"] }
+
+[features]
+# by default Tauri runs in production mode
+# when `tauri dev` runs it is executed with `cargo run --no-default-features` if `devPath` is an URL
+default = [ "custom-protocol" ]
+# this feature is used used for production builds where `devPath` points to the filesystem
+# DO NOT remove this
+custom-protocol = [ "tauri/custom-protocol" ]

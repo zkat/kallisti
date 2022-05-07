@@ -1,0 +1,14 @@
+[package]
+name = "kallisti"
+version = "0.1.0"
+edition = "2021"
+authors = ["Kat Marchán <kzm@zkat.tech>"]
+license = "Apache-2.0"
+rust-version = "1.57"
+repository = "https://github.com/zkat/kallisti"
+
+[workspace]
+members = ["frontend", "src-tauri"]
+
+[dependencies]
+matrix-sdk = "0.4.1"
