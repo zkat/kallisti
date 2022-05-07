@@ -1,23 +1,20 @@
 use std::{cell::RefCell, ops::Deref, sync::Mutex};
 
-pub struct AppStateWrapper(Mutex<RefCell<AppState>>);
+use kallisti::Kallisti;
+
+#[derive(Debug, Default)]
+pub struct AppStateWrapper(Mutex<RefCell<Kallisti>>);
 
 impl Deref for AppStateWrapper {
-    type Target = Mutex<RefCell<AppState>>;
+    type Target = Mutex<RefCell<Kallisti>>;
 
     fn deref(&self) -> &Self::Target {
         &self.0
     }
 }
 
-pub struct AppState {
-    pub notifications: usize,
-}
-
-impl AppState {
-    pub fn new_wrapped() -> AppStateWrapper {
-        AppStateWrapper(Mutex::new(RefCell::new(AppState {
-            notifications: 0,
-        })))
+impl AppStateWrapper {
+    pub fn new() -> AppStateWrapper {
+        Default::default()
     }
 }

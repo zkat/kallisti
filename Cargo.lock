@@ -2187,6 +2187,7 @@ version = "0.1.0"
 dependencies = [
  "kallisti",
  "kallisti-command-error",
+ "matrix-sdk",
  "serde",
  "serde_json",
  "tauri",
