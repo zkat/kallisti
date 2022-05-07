@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-kallisti-error = { path = "../crates/kallisti-error" }
+kallisti-command-error = { path = "../crates/kallisti-command-error" }
 js-sys = "0.3.57"
 wasm-bindgen = { version = "0.2.80", features = ["serde-serialize"] }
 wasm-bindgen-futures = "0.4.30"

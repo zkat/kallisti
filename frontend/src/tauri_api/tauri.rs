@@ -1,6 +1,6 @@
 use std::collections::HashMap;
 
-use kallisti_error::KallistiError;
+use kallisti_command_error::KallistiCommandError;
 use serde::Serialize;
 use wasm_bindgen::prelude::*;
 
@@ -16,7 +16,7 @@ extern "C" {
 pub async fn invoke<T: Serialize>(
     cmd: impl AsRef<str>,
     arg: Option<HashMap<String, T>>,
-) -> Result<JsValue, KallistiError> {
+) -> Result<JsValue, KallistiCommandError> {
     _invoke(cmd.as_ref(), JsValue::from_serde(&arg.unwrap_or_default()).expect("Failed to convert arg to JsValue."))
         .await
         .map_err(|e| JsValue::into_serde(&e).expect("Failed to convert error."))

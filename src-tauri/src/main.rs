@@ -3,7 +3,7 @@
     windows_subsystem = "windows"
 )]
 
-use kallisti_error::KallistiError;
+use kallisti_command_error::KallistiCommandError;
 
 fn main() {
     tauri::Builder::default()
@@ -13,11 +13,11 @@ fn main() {
 }
 
 #[tauri::command]
-fn hello(name: &str) -> Result<String, KallistiError> {
+fn hello(name: &str) -> Result<String, KallistiCommandError> {
     // This is a very simplistic example but it shows how to return a Result
     // and use it in the front-end.
     if name.contains(' ') {
-        Err(KallistiError::GenericError("Name should not contain spaces".to_string()))
+        Err(KallistiCommandError::GenericError("Name should not contain spaces".to_string()))
     } else {
         Ok(format!("Hello, {}", name))
     }

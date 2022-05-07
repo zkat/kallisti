@@ -1,5 +1,5 @@
 [package]
-name = "kallisti-error"
+name = "kallisti-command-error"
 version = "0.1.0"
 edition = "2021"
 

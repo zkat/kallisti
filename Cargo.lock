@@ -2160,7 +2160,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "kallisti-error"
+name = "kallisti-command-error"
 version = "0.1.0"
 dependencies = [
  "miette",
@@ -2173,7 +2173,7 @@ name = "kallisti-frontend"
 version = "0.1.0"
 dependencies = [
  "js-sys",
- "kallisti-error",
+ "kallisti-command-error",
  "serde",
  "wasm-bindgen",
  "wasm-bindgen-futures",
@@ -2186,7 +2186,7 @@ name = "kallisti-tauri"
 version = "0.1.0"
 dependencies = [
  "kallisti",
- "kallisti-error",
+ "kallisti-command-error",
  "serde",
  "serde_json",
  "tauri",
