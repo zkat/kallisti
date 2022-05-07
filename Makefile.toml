@@ -1,0 +1,24 @@
+[tasks.build]
+dependencies = ["install-commands"]
+command = "cargo-tauri"
+args = ["build"]
+workspace = false
+
+[tasks.dev]
+dependencies = ["install-commands"]
+command = "cargo-tauri"
+args = ["dev"]
+workspace = false
+
+[tasks.install-commands]
+dependencies = ["install-trunk", "install-wasm-bindgen-cli", "install-tauri-cli"]
+
+[tasks.install-trunk]
+install_crate = { crate_name = "trunk" }
+
+[tasks.install-wasm-bindgen-cli]
+install_crate = { crate_name = "wasm-bindgen-cli" }
+
+[tasks.install-tauri-cli]
+command = "cargo"
+args = ["install", "tauri-cli", "--locked", "--version", "^1.0.0-rc"]

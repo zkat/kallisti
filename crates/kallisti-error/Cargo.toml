@@ -1,0 +1,11 @@
+[package]
+name = "kallisti-error"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+miette = "4.7.0"
+serde = "1.0.137"
+thiserror = "1.0.31"

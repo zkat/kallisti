@@ -25,9 +25,9 @@
       "resources": [],
       "externalBin": [],
       "copyright": "Kat Marchán",
-      "category": "ChatApp",
-      "shortDescription": "",
-      "longDescription": "",
+      "category": "SocialNetworking",
+      "shortDescription": "To the Prettiest!",
+      "longDescription": "To the Prettiest!",
       "deb": {
         "depends": []
       },

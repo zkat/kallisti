@@ -8,7 +8,7 @@ rust-version = "1.57"
 repository = "https://github.com/zkat/kallisti"
 
 [workspace]
-members = ["frontend", "src-tauri"]
+members = ["frontend", "src-tauri", "crates/*"]
 
 [dependencies]
 matrix-sdk = "0.4.1"
