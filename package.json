@@ -1,0 +1,8 @@
+{
+  "name": "kallisti",
+  "private": true,
+  "devDependencies": {
+    "daisyui": "^2.14.3",
+    "tailwindcss": "^3.0.24"
+  }
+}

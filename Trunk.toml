@@ -1,0 +1,7 @@
+[watch]
+ignore = ["frontend/public/css/main_compiled.css"]
+
+[[hooks]]
+stage = "build"
+command = "cargo"
+command_arguments = ["make", "css"]

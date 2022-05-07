@@ -6,8 +6,8 @@
   "build": {
     "distDir": "../frontend/dist",
     "devPath": "http://localhost:8080/",
-    "beforeDevCommand": "cd frontend && trunk serve",
-    "beforeBuildCommand": "cd frontend && trunk build",
+    "beforeDevCommand": "trunk --config Trunk.toml serve frontend/index.html",
+    "beforeBuildCommand": "trunk --config Trunk.toml build frontend/index.html",
     "withGlobalTauri": true
   },
   "tauri": {

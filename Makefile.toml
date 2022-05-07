@@ -10,6 +10,14 @@ command = "cargo-tauri"
 args = ["dev"]
 workspace = false
 
+[tasks.css]
+dependencies = ["npm-install"]
+script = "npx tailwindcss -i frontend/public/css/main.css -o frontend/public/css/main_compiled.css"
+workspace = false
+
+[tasks.npm-install]
+script = "npm install"
+
 [tasks.install-commands]
 dependencies = ["install-trunk", "install-wasm-bindgen-cli", "install-tauri-cli"]
 
