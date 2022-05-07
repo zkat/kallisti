@@ -17,9 +17,12 @@ pub async fn invoke<T: Serialize>(
     cmd: impl AsRef<str>,
     arg: Option<HashMap<String, T>>,
 ) -> Result<JsValue, KallistiCommandError> {
-    _invoke(cmd.as_ref(), JsValue::from_serde(&arg.unwrap_or_default()).expect("Failed to convert arg to JsValue."))
-        .await
-        .map_err(|e| JsValue::into_serde(&e).expect("Failed to convert error."))
+    _invoke(
+        cmd.as_ref(),
+        JsValue::from_serde(&arg.unwrap_or_default()).expect("Failed to convert arg to JsValue."),
+    )
+    .await
+    .map_err(|e| JsValue::into_serde(&e).expect("Failed to convert error."))
 }
 
 pub fn convert_file_src(src: impl AsRef<str>) -> JsValue {
