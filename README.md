@@ -6,12 +6,11 @@
 
 ## Development
 
-### Dependencies
+### Pre-Requisites
 
+* Rust 1.60+
+* NodeJS 16+ (and NPM 8+)
 * `rustup target add wasm32-unknown-unknown`
-* `cargo install trunk --locked`
-* `cargo install wasm-bindgen-cli`
-* `cargo install tauri-cli --locked --version ^1.0.0-rc`
 
 ### Build & Run
 
