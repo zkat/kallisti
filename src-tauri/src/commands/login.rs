@@ -19,7 +19,9 @@ pub async fn login(
         .await
         .map_err(|e| KallistiCommandError::MatrixClientCreationError(e.to_string()))?;
 
-    client.login(user_id.localpart(), password, None, None).await
+    client
+        .login(user_id.localpart(), password, None, None)
+        .await
         .map_err(|e| KallistiCommandError::MatrixLoginError(e.to_string()))?;
 
     println!("Logged in as {}", user_id);

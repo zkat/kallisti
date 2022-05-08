@@ -7,9 +7,13 @@ edition = "2021"
 
 [dependencies]
 kallisti-command-error = { path = "../crates/kallisti-command-error" }
+kallisti-models = { path = "../crates/kallisti-models" }
 js-sys = "0.3.57"
 wasm-bindgen = { version = "0.2.80", features = ["serde-serialize"] }
 wasm-bindgen-futures = "0.4.30"
 web-sys = "0.3.57"
 yew = "0.19.3"
 serde = "1.0.137"
+yew_form = "0.1.7"
+validator = "0.15.0"
+gloo = { version = "0.7.0", features = ["futures"] }

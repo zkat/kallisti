@@ -8,10 +8,7 @@ pub enum KallistiCommandError {
     GenericError(String),
 
     #[error("{message}")]
-    UserIdParseError {
-        message: String,
-        id: String,
-    },
+    UserIdParseError { message: String, id: String },
 
     #[error("{0}")]
     MatrixClientCreationError(String),
