@@ -1,12 +1,9 @@
-use std::collections::HashMap;
-
+use kallisti_command_error::KallistiCommandError;
 use kallisti_models::LoginInfo;
+use matrix_sdk::{ruma::UserId, Client};
 use wasm_bindgen::JsValue;
-use wasm_bindgen_futures::future_to_promise;
 use web_sys::HtmlInputElement;
 use yew::prelude::*;
-
-use crate::tauri_api::tauri;
 
 #[function_component(Login)]
 pub fn login() -> Html {
@@ -54,12 +51,9 @@ pub fn login() -> Html {
 
 #[allow(unused_must_use)]
 fn invoke_login(info: &LoginInfo) {
-    let info_hash = HashMap::from([
-        ("userId".into(), info.user_id.clone()),
-        ("password".into(), info.password.clone()),
-    ]);
-    future_to_promise(async {
-        tauri::invoke("login", Some(info_hash)).await.map_or_else(
+    let info = info.clone();
+    matrix_sdk::executor::spawn(async move {
+        log_in(&info).await.map_or_else(
             |e| {
                 let val = JsValue::from_serde(&e).expect("Failed to convert error.");
                 gloo::console::log!(&val);
@@ -68,6 +62,24 @@ fn invoke_login(info: &LoginInfo) {
                 gloo::console::log!("Logged in successfully");
             },
         );
-        Ok(JsValue::NULL)
     });
+}
+
+async fn log_in(info: &LoginInfo) -> Result<(), KallistiCommandError> {
+    let user = <&UserId>::try_from(info.user_id.as_str()).map_err(|e| {
+        KallistiCommandError::UserIdParseError {
+            message: format!("{}", e),
+            id: info.user_id.clone(),
+        }
+    })?;
+    let client = Client::builder()
+        .user_id(user)
+        .build()
+        .await
+        .map_err(|e| KallistiCommandError::MatrixClientCreationError(e.to_string()))?;
+
+    matrix_sdk::executor::spawn(async move {
+        client.sync(Default::default()).await;
+    });
+    Ok(())
 }

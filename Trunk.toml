@@ -1,5 +1,5 @@
 [watch]
-ignore = ["frontend/public/css/main_compiled.css"]
+ignore = ["frontend/public/css/main_compiled.css", "src-tauri"]
 
 [[hooks]]
 stage = "build"

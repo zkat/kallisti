@@ -1,10 +1,22 @@
-[tasks.build]
+[tasks.dev]
+dependencies = ["install-commands"]
+command = "trunk"
+args = ["--config", "Trunk.toml", "serve", "frontend/index.html"]
+workspace = false
+
+[tasks.bundle]
+dependencies = ["install-commands"]
+command = "trunk"
+args = ["--config", "Trunk.toml", "build", "--release", "frontend/index.html"]
+workspace = false
+
+[tasks.tauri-bundle]
 dependencies = ["install-commands"]
 command = "cargo-tauri"
 args = ["build"]
 workspace = false
 
-[tasks.dev]
+[tasks.tauri-dev]
 dependencies = ["install-commands"]
 command = "cargo-tauri"
 args = ["dev"]

@@ -1,9 +1,8 @@
 /frontend/dist
 /frontend/public/css/main_compiled.css
+/frontend/target
+
 /node_modules
 
-
-# Added by cargo
-
-/target
 /src-tauri/WixTools
+/src-tauri/target

@@ -1,13 +1,21 @@
 [package]
-name = "kallisti-frontend"
+name = "kallisti"
 version = "0.1.0"
 edition = "2021"
+authors = ["Kat Marchán <kzm@zkat.tech>"]
+license = "Apache-2.0"
+rust-version = "1.57"
+repository = "https://github.com/zkat/kallisti"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[workspace]
+members = ["crates/*"]
+
+[profile.release]
+lto = true
 
 [dependencies]
-kallisti-command-error = { path = "../crates/kallisti-command-error" }
-kallisti-models = { path = "../crates/kallisti-models" }
+kallisti-command-error = { path = "./crates/kallisti-command-error" }
+kallisti-models = { path = "./crates/kallisti-models" }
 js-sys = "0.3.57"
 wasm-bindgen = { version = "0.2.80", features = ["serde-serialize"] }
 wasm-bindgen-futures = "0.4.30"
@@ -17,3 +25,14 @@ serde = "1.0.137"
 yew_form = "0.1.7"
 validator = "0.15.0"
 gloo = { version = "0.7.0", features = ["futures"] }
+
+[dependencies.matrix-sdk]
+git = "https://github.com/matrix-org/matrix-rust-sdk"
+branch = "main"
+default-features = false
+features = [
+    "e2e-encryption",
+    "indexeddb",
+    "native-tls"
+]
+

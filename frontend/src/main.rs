@@ -1,3 +1,3 @@
 fn main() {
-    yew::start_app::<kallisti_frontend::components::App>();
+    yew::start_app::<kallisti::components::App>();
 }
