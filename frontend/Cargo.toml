@@ -25,6 +25,7 @@ serde = "1.0.137"
 yew_form = "0.1.7"
 validator = "0.15.0"
 gloo = { version = "0.7.0", features = ["futures"] }
+yew-router = "0.16.0"
 
 [dependencies.matrix-sdk]
 git = "https://github.com/matrix-org/matrix-rust-sdk"
